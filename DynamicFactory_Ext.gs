@@ -3,7 +3,7 @@ package acc.dynamic_factory
 uses acc.dynamic_factory.example.IExampleWorker_Ext
 uses gw.pl.logging.LoggerCategory
 
-class UnderPinFactory_Ext {
+class DynamicFactory_Ext {
 
   var _logger = LoggerCategory.TEST
   var worker = \ workerNumber : int -> "acc.dynamic_factory.example.ExampleWorker${workerNumber}_Ext"
@@ -13,10 +13,10 @@ class UnderPinFactory_Ext {
   }
 
   private static class Loader{
-    private static final var INSTANCE : UnderPinFactory_Ext = new UnderPinFactory_Ext()
+    private static final var INSTANCE : DynamicFactory_Ext = new DynamicFactory_Ext()
   }
 
-  public static property get Instance() :  UnderPinFactory_Ext {
+  public static property get Instance() : DynamicFactory_Ext {
     return Loader.INSTANCE
   }
 
